@@ -1,10 +1,10 @@
-import 'package:al_hadith/data/controller/book_controller.dart';
-import 'package:al_hadith/presentation/screen/chapter_screen.dart';
-import 'package:al_hadith/presentation/utility/assets_path.dart';
-import 'package:al_hadith/presentation/utility/custom_size_extention.dart';
-import 'package:al_hadith/presentation/utility/style.dart';
-import 'package:al_hadith/presentation/widgets/carousel_slider_widget.dart';
-import 'package:al_hadith/presentation/widgets/text_component.dart';
+import 'package:al_hadith_app/data/controller/book_controller.dart';
+import 'package:al_hadith_app/presentation/screens/chapter_screen.dart';
+import 'package:al_hadith_app/presentation/utility/assets_path.dart';
+import 'package:al_hadith_app/presentation/utility/custom_size_extention.dart';
+import 'package:al_hadith_app/presentation/utility/style.dart';
+import 'package:al_hadith_app/presentation/widgets/carousel_slider_widget.dart';
+import 'package:al_hadith_app/presentation/widgets/text_component.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -30,8 +30,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(
+          backgroundColor:  AppColors.primaryColor,
           elevation: 0,
-          leading: SvgPicture.asset(AssetsPath.menuSVG),
+          leading: SvgPicture.asset(AssetsPath.menuSVG,color: AppColors.whiteColor,),
           centerTitle: true,
           title: Padding(
             padding: const EdgeInsets.only(top: 8.0),
@@ -46,7 +47,7 @@ class _HomePageState extends State<HomePage> {
           actions: [
             Padding(
               padding:  EdgeInsets.only(right: 16.rh),
-              child: SvgPicture.asset(AssetsPath.searchSVG),
+              child: SvgPicture.asset(AssetsPath.searchSVG,color: AppColors.whiteColor,),
             ),
           ],
         ),
@@ -93,9 +94,11 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Positioned(
                       bottom: 5,
+                      right: 0,
+                      left: 0,
                       child: SizedBox(
                           height: 100.rh,
-                          width: 415.rh,
+                          // width: 415.rh,
                           child: Padding(
                             padding:  EdgeInsets.symmetric(vertical: 0.0,horizontal: 16.rh),
                             child: Card(
@@ -169,6 +172,8 @@ class _HomePageState extends State<HomePage> {
                                 Positioned(
                                   left: 0,
                                   top: 0,
+                                  bottom: 0,
+                                  right: 0,
                                   child: Container(
                                     width: 46.rh,
                                     height: 46.rh,
@@ -183,15 +188,12 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 Center(
-                                  child: Padding(
-                                    padding:  EdgeInsets.only(top: 14.rh),
-                                    child: TextComponent(
-                                      text: _bookController.bookList[index].abvrCode ?? '',
-                                      color: AppColors.whiteColor,
-                                      fontSize: Constants.titleFontSize,
-                                      fontWeight: Constants.mediumFontWeight,
-                                      height: 0.06,
-                                    ),
+                                  child: TextComponent(
+                                    text: _bookController.bookList[index].abvrCode ?? '',
+                                    color: AppColors.whiteColor,
+                                    fontSize: Constants.titleFontSize,
+                                    fontWeight: Constants.mediumFontWeight,
+                                    height: 0.06,
                                   ),
                                 ),
                               ],
@@ -254,3 +256,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
+
+

@@ -1,7 +1,7 @@
-import 'package:al_hadith/presentation/utility/bangla_text.dart';
-import 'package:al_hadith/presentation/utility/custom_size_extention.dart';
-import 'package:al_hadith/presentation/utility/style.dart';
-import 'package:al_hadith/presentation/widgets/text_component.dart';
+import 'package:al_hadith_app/presentation/utility/bangla_text.dart';
+import 'package:al_hadith_app/presentation/utility/custom_size_extention.dart';
+import 'package:al_hadith_app/presentation/utility/style.dart';
+import 'package:al_hadith_app/presentation/widgets/text_component.dart';
 import 'package:flutter/material.dart';
 
 class HadithAlertDialog extends StatelessWidget {

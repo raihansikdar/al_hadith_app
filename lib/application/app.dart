@@ -1,4 +1,8 @@
 
+import 'package:al_hadith_app/application/state_binders_controller.dart';
+import 'package:al_hadith_app/presentation/screens/splash_screen.dart';
+import 'package:al_hadith_app/presentation/utility/custom_size_extention.dart';
+import 'package:al_hadith_app/presentation/utility/style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,9 +12,8 @@ class AlHadithApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get the screen size
+
     Size size = MediaQuery.of(context).size;
-    // Set the screen width and height in the ScreenSizes utility class
     ScreenSizes.screenWidth = size.width;
     ScreenSizes.screenHeight = size.height;
 
@@ -19,9 +22,8 @@ class AlHadithApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: MaterialColor(AppColors.primaryColor.value, AppColors().color),
-
       ),
-      home: const BottomNavigationScreen(),
+      home: const SplashScreen(),
     );
   }
 }

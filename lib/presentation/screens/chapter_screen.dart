@@ -1,12 +1,12 @@
-import 'package:al_hadith/data/controller/chapter_controller.dart';
-import 'package:al_hadith/data/debouncer.dart';
-import 'package:al_hadith/presentation/screen/hadith_screen.dart';
-import 'package:al_hadith/presentation/utility/assets_path.dart';
-import 'package:al_hadith/presentation/utility/bangla_text.dart';
-import 'package:al_hadith/presentation/utility/custom_size_extention.dart';
-import 'package:al_hadith/presentation/utility/style.dart';
-import 'package:al_hadith/presentation/widgets/searchBar_widget.dart';
-import 'package:al_hadith/presentation/widgets/text_component.dart';
+import 'package:al_hadith_app/data/controller/chapter_controller.dart';
+import 'package:al_hadith_app/data/debouncer.dart';
+import 'package:al_hadith_app/presentation/screens/hadith_screen.dart';
+import 'package:al_hadith_app/presentation/utility/assets_path.dart';
+import 'package:al_hadith_app/presentation/utility/bangla_text.dart';
+import 'package:al_hadith_app/presentation/utility/custom_size_extention.dart';
+import 'package:al_hadith_app/presentation/utility/style.dart';
+import 'package:al_hadith_app/presentation/widgets/searchBar_widget.dart';
+import 'package:al_hadith_app/presentation/widgets/text_component.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -44,6 +44,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
         backgroundColor: AppColors.primaryColor,
         appBar: AppBar(
           leading: IconButton(
+            color: AppColors.whiteColor,
             onPressed: () {
               Get.back();
             },

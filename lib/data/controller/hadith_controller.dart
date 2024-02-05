@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:al_hadith/domain/database/database_helper.dart';
-import 'package:al_hadith/domain/models/hadith_model.dart';
+import 'package:al_hadith_app/domain/database/database_helper.dart';
+import 'package:al_hadith_app/domain/models/hadith_model.dart';
 import 'package:get/get.dart';
 
 class HadithController extends GetxController{
@@ -24,7 +24,7 @@ class HadithController extends GetxController{
      if(results.isNotEmpty){
        hadithList.clear();
        hadithList = results.map((e) => HadithModel.fromJson(e)).toList();
-
+       // log(hadithList.toString());
        // for(final result in results){
        //   HadithModel hadithModel = HadithModel.fromJson(result);
        //   hadithList.add(hadithModel);

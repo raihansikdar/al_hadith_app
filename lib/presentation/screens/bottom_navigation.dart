@@ -32,7 +32,7 @@ class _DashBoardPageState extends State<BottomNavigationScreen> {
             )
         ),
 
-        height: 56,
+        //height: 52,
         child: BottomNavigationBar(
           backgroundColor: Colors.amber,
           elevation: 4,

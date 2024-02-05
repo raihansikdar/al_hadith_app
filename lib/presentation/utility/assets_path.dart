@@ -17,8 +17,15 @@ class AssetsPath{
   static String saveSVG = "assets/icons/save.svg";
   static String profileSVG = "assets/icons/profile.svg";
   static String mosquePNG = "assets/icons/mosque.png";
+  static String goToMainSVG = "assets/icons/go_to_main.svg";
+  static String collectionSVG = "assets/icons/collection.svg";
+  static String copySVG = "assets/icons/copy.svg";
+  static String addSVG = "assets/icons/add.svg";
+  static String shareSVG = "assets/icons/share.svg";
+  static String reportSVG = "assets/icons/report.svg";
   static String islamicCalligraphyPNG = "assets/icons/islamic_calligraphy.png";
   static String noDataFoundPNG = "assets/icons/no_data_found.png";
+  static String splashScreenJPG = "assets/icons/splash_screen.jpg";
 
 
 

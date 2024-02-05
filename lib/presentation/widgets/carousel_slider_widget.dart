@@ -1,5 +1,5 @@
-import 'package:al_hadith/presentation/utility/custom_size_extention.dart';
-import 'package:al_hadith/presentation/utility/style.dart';
+import 'package:al_hadith_app/presentation/utility/custom_size_extention.dart';
+import 'package:al_hadith_app/presentation/utility/style.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 

@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:al_hadith/domain/database/database_helper.dart';
-import 'package:al_hadith/domain/models/chapter_model.dart';
+import 'package:al_hadith_app/domain/database/database_helper.dart';
+import 'package:al_hadith_app/domain/models/chapter_model.dart';
 import 'package:get/get.dart';
 
 class ChapterController extends GetxController {

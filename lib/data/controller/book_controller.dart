@@ -1,10 +1,8 @@
-
-
 import 'dart:developer';
 
 
-import 'package:al_hadith/domain/database/database_helper.dart';
-import 'package:al_hadith/domain/models/book_model.dart';
+import 'package:al_hadith_app/domain/database/database_helper.dart';
+import 'package:al_hadith_app/domain/models/book_model.dart';
 import 'package:get/get.dart';
 
 class BookController extends GetxController {

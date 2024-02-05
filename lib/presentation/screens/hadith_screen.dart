@@ -1,13 +1,15 @@
 import 'dart:developer';
 
-import 'package:al_hadith/data/controller/chapter_controller.dart';
-import 'package:al_hadith/data/controller/hadith_controller.dart';
-import 'package:al_hadith/presentation/utility/bangla_text.dart';
-import 'package:al_hadith/presentation/utility/custom_size_extention.dart';
-import 'package:al_hadith/presentation/utility/style.dart';
-import 'package:al_hadith/presentation/widgets/hadith_alert_dialog.dart';
-import 'package:al_hadith/presentation/widgets/text_component.dart';
+import 'package:al_hadith_app/data/controller/chapter_controller.dart';
+import 'package:al_hadith_app/data/controller/hadith_controller.dart';
+import 'package:al_hadith_app/presentation/utility/assets_path.dart';
+import 'package:al_hadith_app/presentation/utility/bangla_text.dart';
+import 'package:al_hadith_app/presentation/utility/custom_size_extention.dart';
+import 'package:al_hadith_app/presentation/utility/style.dart';
+import 'package:al_hadith_app/presentation/widgets/hadith_alert_dialog.dart';
+import 'package:al_hadith_app/presentation/widgets/text_component.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -41,7 +43,7 @@ class _HadithScreenState extends State<HadithScreen> {
               onTap: (){
                 Navigator.pop(context);
               },
-              child: Icon(Icons.arrow_back_ios)),
+              child: const Icon(Icons.arrow_back_ios,color: AppColors.whiteColor,)),
           title: Padding(
             padding: const EdgeInsets.only(top: 8.0),
             child: GetBuilder<ChapterController>(
@@ -143,15 +145,15 @@ class _HadithScreenState extends State<HadithScreen> {
                                               crossAxisAlignment: CrossAxisAlignment.start,
                                               children: [
                                                 TextComponent(
-                                                  text: _hadithController.hadithList.first.bookName ?? '',
-                                                  color: AppColors.bookTitleTextColor.withOpacity(0.7),
+                                                  text: BanglaText.hadith_text + " : ${_hadithController.hadithList.first.hadithId.toString() ?? ''}",
+                                                  color: AppColors.bookTitleTextColor,
                                                   fontSize: Constants.textSmallFontSize,
                                                   fontWeight: Constants.mediumFontWeight,
                                                   height: 0.0,
                                                 ),
                                                 TextComponent(
-                                                  text: BanglaText.hadith_text + " : ${_hadithController.hadithList.first.hadithId.toString() ?? ''}",
-                                                  color: AppColors.bookTitleTextColor,
+                                                  text: _hadithController.hadithList.first.bookName ?? '',
+                                                  color: AppColors.bookTitleTextColor.withOpacity(0.7),
                                                   fontSize: Constants.textSmallFontSize,
                                                   fontWeight: Constants.mediumFontWeight,
                                                   height: 0.0,
@@ -182,7 +184,167 @@ class _HadithScreenState extends State<HadithScreen> {
                                                   height: 0.0,
                                                 ),),
                                             ),
-
+                                           GestureDetector(
+                                               onTap: (){
+                                                 showModalBottomSheet(context: context, builder: (context){
+                                                   return Container(
+                                                     height: 400,
+                                                     width: double.infinity,
+                                                     child: Padding(
+                                                       padding: const EdgeInsets.all(16.0),
+                                                       child: Column(
+                                                         children: [
+                                                           Row(
+                                                             children: [
+                                                               TextComponent(
+                                                                 text: 'More Option',
+                                                                 color: AppColors.bookTitleTextColor,
+                                                                 fontSize: Constants.titleFontSize,
+                                                                 fontWeight: Constants.titleFontWeight,
+                                                                 height: 0.0,
+                                                               ),
+                                                               const Spacer(),
+                                                               GestureDetector(
+                                                                   onTap: (){
+                                                                     Navigator.pop(context);
+                                                                   },
+                                                                   child: const Icon(Icons.close))
+                                                             ],
+                                                           ),
+                                                           SizedBox(height: 16.rh,),
+                                                           Row(
+                                                             children: [
+                                                               SvgPicture.asset(AssetsPath.goToMainSVG,width: 23.rh,),
+                                                               SizedBox(width: 8.rw,),
+                                                               TextComponent(
+                                                                 text: 'Go To Main Hadith',
+                                                                 color: AppColors.TileTitleTextColor,
+                                                                 fontSize: Constants.textSmallFontSize,
+                                                                 fontWeight: Constants.mediumFontWeight,
+                                                                 height: 0.0,
+                                                               ),
+                                                             ],
+                                                           ),
+                                                           SizedBox(height: 16.rh,),
+                                                           Row(
+                                                             children: [
+                                                               SvgPicture.asset(AssetsPath.collectionSVG,width: 20.rh,),
+                                                               SizedBox(width: 8.rw,),
+                                                               TextComponent(
+                                                                 text: 'Add to Collection',
+                                                                 color: AppColors.TileTitleTextColor,
+                                                                 fontSize: Constants.textSmallFontSize,
+                                                                 fontWeight: Constants.mediumFontWeight,
+                                                                 height: 0.0,
+                                                               ),
+                                                             ],
+                                                           ),
+                                                           SizedBox(height: 16.rh,),
+                                                           Row(
+                                                             children: [
+                                                               SvgPicture.asset(AssetsPath.copySVG,width: 20.rh),
+                                                               SizedBox(width: 8.rw,),
+                                                               TextComponent(
+                                                                 text: 'Bangla Copy',
+                                                                 color: AppColors.TileTitleTextColor,
+                                                                 fontSize: Constants.textSmallFontSize,
+                                                                 fontWeight: Constants.mediumFontWeight,
+                                                                 height: 0.0,
+                                                               ),
+                                                             ],
+                                                           ),
+                                                           SizedBox(height: 16.rh,),
+                                                           Row(
+                                                             children: [
+                                                               SvgPicture.asset(AssetsPath.copySVG,width: 20.rh),
+                                                               SizedBox(width: 8.rw,),
+                                                               TextComponent(
+                                                                 text: 'English Copy',
+                                                                 color: AppColors.TileTitleTextColor,
+                                                                 fontSize: Constants.textSmallFontSize,
+                                                                 fontWeight: Constants.mediumFontWeight,
+                                                                 height: 0.0,
+                                                               ),
+                                                             ],
+                                                           ),
+                                                           SizedBox(height: 16.rh,),
+                                                           Row(
+                                                             children: [
+                                                               SvgPicture.asset(AssetsPath.copySVG,width: 20.rh),
+                                                               SizedBox(width: 8.rw,),
+                                                               TextComponent(
+                                                                 text: 'Arabic Copy',
+                                                                 color: AppColors.TileTitleTextColor,
+                                                                 fontSize: Constants.textSmallFontSize,
+                                                                 fontWeight: Constants.mediumFontWeight,
+                                                                 height: 0.0,
+                                                               ),
+                                                             ],
+                                                           ),
+                                                           SizedBox(height: 16.rh,),
+                                                           Row(
+                                                             children: [
+                                                               SvgPicture.asset(AssetsPath.addSVG,width: 20.rh),
+                                                               SizedBox(width: 8.rw,),
+                                                               TextComponent(
+                                                                 text: 'Add Hifz',
+                                                                 color: AppColors.TileTitleTextColor,
+                                                                 fontSize: Constants.textSmallFontSize,
+                                                                 fontWeight: Constants.mediumFontWeight,
+                                                                 height: 0.0,
+                                                               ),
+                                                             ],
+                                                           ),
+                                                           SizedBox(height: 16.rh,),
+                                                           Row(
+                                                             children: [
+                                                               SvgPicture.asset(AssetsPath.addSVG,width: 20.rh),
+                                                               SizedBox(width: 8.rw,),
+                                                               TextComponent(
+                                                                 text: 'Add Note',
+                                                                 color: AppColors.TileTitleTextColor,
+                                                                 fontSize: Constants.textSmallFontSize,
+                                                                 fontWeight: Constants.mediumFontWeight,
+                                                                 height: 0.0,
+                                                               ),
+                                                             ],
+                                                           ),
+                                                           SizedBox(height: 16.rh,),
+                                                           Row(
+                                                             children: [
+                                                               SvgPicture.asset(AssetsPath.shareSVG,width: 20.rh),
+                                                               SizedBox(width: 8.rw,),
+                                                               TextComponent(
+                                                                 text: 'Share',
+                                                                 color: AppColors.TileTitleTextColor,
+                                                                 fontSize: Constants.textSmallFontSize,
+                                                                 fontWeight: Constants.mediumFontWeight,
+                                                                 height: 0.0,
+                                                               ),
+                                                             ],
+                                                           ),
+                                                           SizedBox(height: 16.rh,),
+                                                           Row(
+                                                             children: [
+                                                               SvgPicture.asset(AssetsPath.reportSVG,width: 20.rh),
+                                                               SizedBox(width: 8.rw,),
+                                                               TextComponent(
+                                                                 text: 'Report',
+                                                                 color: AppColors.TileTitleTextColor,
+                                                                 fontSize: Constants.textSmallFontSize,
+                                                                 fontWeight: Constants.mediumFontWeight,
+                                                                 height: 0.0,
+                                                               ),
+                                                             ],
+                                                           ),
+                                                         ],
+                                                       ),
+                                                     ),
+                                                   );
+                                                 });
+                                               },
+                                               child: Icon(Icons.more_vert,size: 40.rSp,),
+                                           )
                                           ],
                                         ),
                                         SizedBox(height: 24.rh,),
